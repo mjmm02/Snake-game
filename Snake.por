@@ -1,16 +1,16 @@
 programa
 {
 	inclua biblioteca Graficos --> g
-	inclua biblioteca Matematica --> m
 	inclua biblioteca Teclado --> t
 	inclua biblioteca Util --> u
 	
 	funcao inicio()
 	{
+		const inteiro dim_x = 20, dim_y = 20
+		
 		caracter dir = 'S'
-		//logico tecla_press = falso
-		inteiro img_apple, img_snek, num_cor, tecl = t.TECLA_S, ult_tecl = t.TECLA_Z, pos[250][2], 
-				pos_x = 20, pos_y = 20, pos_xe = 20, pos_ye = 80, aux = 0, dim_x = 20, dim_y = 20, i_size = 6
+		inteiro img_apple, img_snek, num_cor, pos[250][2], pos_x = 20, 
+			pos_y = 20, pos_xe = 20, pos_ye = 80, aux = 0, i_size = 6
 		
 		pos[i_size - 1][0] = pos_x
 		pos[i_size - 1][1] = pos_y
@@ -38,7 +38,7 @@ programa
 			
 			faca{
 				aux++
-				u.aguarde(9)
+				u.aguarde(8)
 				//tecla_press = t.alguma_tecla_pressionada()
 				se(t.tecla_pressionada(t.TECLA_W) == verdadeiro){
 					se(dir != 'S'){
@@ -129,14 +129,16 @@ programa
 			}
 
 			para(inteiro i = 0; i < i_size; i++){
-				
-				g.desenhar_retangulo(pos[i][0], pos[i][1], dim_x, dim_y, falso, verdadeiro)
+
+				//g.desenhar_elipse(pos[i][0], pos[i][1], dim_x, dim_y, verdadeiro)
+				g.desenhar_retangulo(pos[i][0], pos[i][1], dim_x, dim_y, verdadeiro, verdadeiro)
 				//g.desenhar_imagem(pos[i][0], pos[i][1], img_snek)
 			}
 
 			//g.desenhar_imagem(pos_xe, pos_ye, img_apple)
 			g.definir_cor(g.COR_VERMELHO)
-			g.desenhar_elipse(pos_xe, pos_ye, dim_x, dim_y, verdadeiro)
+			g.desenhar_retangulo(pos_xe, pos_ye, dim_x, dim_y, verdadeiro, verdadeiro)
+			//g.desenhar_elipse(pos_xe, pos_ye, dim_x, dim_y, falso)
 			
 			g.renderizar()
 		}
@@ -147,7 +149,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2790; 
+ * @POSICAO-CURSOR = 1021; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
